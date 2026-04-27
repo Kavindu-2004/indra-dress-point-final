@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* ✅ Force light theme always */
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+/* Keep your theme tokens */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ❌ Remove dark-mode auto switch (Shop should stay white) */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Optional: common container like Shopify */
+.container-page {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Premium product card */
+.p-card {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.p-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+.p-img {
+  transition: transform 300ms ease;
+}
+.p-card:hover .p-img {
+  transform: scale(1.06);
+}
+
+/* ===== Page animations ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-fade-up {
+  animation: fadeUp 600ms ease-out both;
+}
+
+.anim-delay-1 { animation-delay: 80ms; }
+.anim-delay-2 { animation-delay: 160ms; }
+.anim-delay-3 { animation-delay: 240ms; }
+
+/* Premium hover card */
+.hover-card {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.hover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.10);
+}
+
+/* Zoom media on hover */
+.zoom-wrap {
+  overflow: hidden;
+}
+.zoom-media {
+  transition: transform 400ms ease;
+}
+.zoom-wrap:hover .zoom-media {
+  transform: scale(1.06);
+}
